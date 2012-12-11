@@ -43,7 +43,7 @@ has 'app' => (
     },
 );
 
-sub BUILD { 
+sub BUILD {
     my $self = shift;
     $self->httpd->run( $self->app );
 };
@@ -56,7 +56,7 @@ __PACKAGE__->meta->make_immutable;
 
   use CPAN::Faker::HTTPD;
   use LWP::Simple;
- 
+
   my $cpan = CPAN::Faker::HTTPD->new({ source => './eg' });
   $cpan->make_cpan;
 
@@ -64,12 +64,12 @@ __PACKAGE__->meta->make_immutable;
   $uri->path( '/authors/id/P/PS/PSHANGOV/Miril-0.008.tar.gz' );
 
   my $content = LWP::Simple::get( $uri );
- 
+
 $cpan->make_cpan;
 
 =head1 DESCRIPTION
 
-This module is a subclass of L<CPAN::Faker> that additionally supplies a 
+This module is a subclass of L<CPAN::Faker> that additionally supplies a
 running webserver (via L<Test::Fake::HTTPD>). It is useful for testing code
 that interacts with remote CPAN mirrors.
 
@@ -93,7 +93,7 @@ See L<Test::Fake::HTTPD> for details.
 
 =head2 endpoint
 
-L<URI> object for the full address of the running server (e.g. 
+L<URI> object for the full address of the running server (e.g.
 C<http://127.0.0.1:{port}>).
 
 See L<Test::Fake::HTTPD> for details.
